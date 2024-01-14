@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" required>
+  
+    <!-- Display an error message if the password is less than 6 characters -->
+    <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+      Password must be at least 6 characters long.
+    </div>
+  
+    <button type="submit">Login</button>
+  </form>
+  
